@@ -13,7 +13,7 @@ function ServicesSection() {
                         עובד.
                     </p>
                 </div>
-                <div className="max-w-full flex flex-col lg:flex-row mx-auto mt-8 *:text-center md:mt-16">
+                <div className="max-w-full grid lg:grid-cols-3 mx-auto *:text-center">
                     {SERVICES.slice(0, 3).map((service) => (
                         <Card key={service.title} className="group border-0 shadow-none bg-transparent">
                             <CardHeader>
@@ -22,7 +22,7 @@ function ServicesSection() {
                                 </CardDecorator>
                                 <CardTitle className="whitespace-nowrap">{service.title}</CardTitle>
                             </CardHeader>
-                            <CardContent className="font-rubik text-muted-foreground">
+                            <CardContent className="font-rubik text-muted-foreground max-w-lg mx-auto">
                                 {service.description}
                             </CardContent>
                         </Card>
@@ -43,10 +43,10 @@ function ServicesSection() {
                         </Card>
                     ))}
                 </div>
-                <div className="flex items-start justify-center gap-2 my-16">
-                    <h3 className="font-semibold text-lg whitespace-nowrap">המטרה שלנו 🎯</h3>
-                    <p className="font-rubik mt-0.5 lg:text-lg">
-                        לאפשר לך לעבוד פחות – ולהרוויח יותר, עם עסק שעובד חכם, מסודר ושקט בראש.
+                <div className="flex flex-col items-center justify-center my-16 max-w-lg mx-auto">
+                    <h3 className="font-semibold text-lg whitespace-nowrap">🎯 המטרה שלנו</h3>
+                    <p className="font-rubik mt-px text-center">
+                        לקדם את העסקים בארץ בתחום האוטומציות והבינה המלאכותית עם מערכות שמותאמות לשוק הישראלי.
                     </p>
                 </div>
             </div>

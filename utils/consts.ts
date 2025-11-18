@@ -13,6 +13,7 @@ export const WHATSAPP_BOT_NUMBER = "972527018120";
 export const WHATSAPP_HUMAN_NUMBER = "972507537633";
 export const WHATSAPP_BOT_URL = `https://wa.me/${WHATSAPP_BOT_NUMBER}?text=${DEFAULT_WHATSAPP_MSG}`;
 export const WHATSAPP_HUMAN_URL = `https://wa.me/${WHATSAPP_HUMAN_NUMBER}?text=${DEFAULT_WHATSAPP_MSG}`;
+export const PHONE_AGENT_NUMBER = "972765997446";
 
 export const NAVIGATION = [
     {
@@ -70,44 +71,44 @@ export const SOCIALS = [
 
 export const CLIENTS = [
     {
-        src: "/images/clients/noni.png",
+        src: "/media/clients/noni.png",
         name: "נוני שושתרי",
     },
     {
-        src: "/images/clients/yaakov.png",
+        src: "/media/clients/yaakov.png",
         name: "יעקב סאטלר",
     },
     {
-        src: "/images/clients/ori.png",
+        src: "/media/clients/ori.png",
         name: "אורי חרך",
     },
     {
-        src: "/images/clients/revital.png",
+        src: "/media/clients/revital.png",
         name: "רויטל ליליאן",
     },
     {
-        src: "/images/clients/moshe.png",
+        src: "/media/clients/moshe.png",
         name: "משה טלית",
     },
     {
-        src: "/images/clients/vered.png",
+        src: "/media/clients/vered.png",
         name: "ורד סולן",
     },
 ];
 
 export const TEAM = [
     {
-        src: "/images/team/roy.png",
+        src: "/media/team/roy.png",
         name: "רועי ברזילי",
         title: "מייסד ומפתח מערכות חכמות",
     },
     {
-        src: "/images/team/michael.png",
+        src: "/media/team/michael.png",
         name: "מיכאל רבינוביץ'",
         title: "מפתח ומומחה תשתיות",
     },
     {
-        src: "/images/team/barak.png",
+        src: "/media/team/barak.png",
         name: "ברק באטיטו",
         title: "אחראי שיווק וצמיחה עסקית",
     },

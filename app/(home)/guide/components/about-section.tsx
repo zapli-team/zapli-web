@@ -15,14 +15,19 @@ function AboutSection() {
                     פשוטות שבאמת עובדות — בלי שטויות תאגידיות ובלי סיבוכים מיותרים.
                 </p>
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
-                    <Button asChild size="lg" variant="outline" className="font-semibold tracking-wide gap-1">
+                    <Button
+                        asChild
+                        size="lg"
+                        variant="outline"
+                        className="font-semibold tracking-wide gap-1 w-full sm:w-auto"
+                    >
                         <Link href="/contact">
                             דברו איתנו
                             <ChevronLeft className="size-3" />
                         </Link>
                     </Button>
-                    <div className="space-y-2">
-                        <Button asChild size="lg" className="font-semibold tracking-wide gap-1">
+                    <div className="space-y-2 w-full sm:w-auto">
+                        <Button asChild size="lg" className="font-semibold tracking-wide gap-1 w-full sm:w-auto">
                             <Link href={WHATSAPP_BOT_URL} target="_blank" rel="noreferrer">
                                 דברו עם צ'אטבוט בוואטסאפ
                                 <FaWhatsapp />

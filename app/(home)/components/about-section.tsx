@@ -7,7 +7,7 @@ import { TEAM } from "@/utils/consts";
 
 function AboutSection() {
     return (
-        <section id="about" className="py-24 md:py-48 bg-background">
+        <section id="about" className="py-24 md:py-32 bg-background">
             <div className="mx-auto max-w-5xl px-6">
                 <div className="grid gap-6 md:grid-cols-2 md:gap-12">
                     <div className="space-y-6">

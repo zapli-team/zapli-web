@@ -171,12 +171,11 @@
     * {
         @apply border-border outline-ring/50 selection:bg-primary selection:text-primary-foreground;
     }
-    :root,
-    body {
-        @apply h-full scroll-smooth;
+    :root {
+        @apply scroll-smooth overflow-x-hidden;
     }
     body {
-        @apply bg-background text-foreground font-ploni;
+        @apply h-full bg-background text-foreground font-ploni;
     }
     .userway_buttons_wrapper {
         @apply top-auto! right-auto! bottom-10! left-10! transform-none!;

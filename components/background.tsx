@@ -14,7 +14,7 @@ function Background({ className, ...props }: React.ComponentProps<"div">) {
             {...props}
         >
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
-            <div className="absolute inset-0 overflow-hidden opacity-50">
+            {/* <div className="absolute inset-0 overflow-hidden opacity-50">
                 <ElegantShape
                     delay={0.3}
                     width={600}
@@ -55,7 +55,7 @@ function Background({ className, ...props }: React.ComponentProps<"div">) {
                     gradient="from-cyan-500/[0.15]"
                     className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
                 />
-            </div>
+            </div> */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
         </div>
     );
