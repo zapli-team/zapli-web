@@ -8,7 +8,7 @@ import { ContactForm } from "./contact-form";
 
 export default function ContactPage() {
     return (
-        <section className="py-48 space-y-48">
+        <section className="py-16 md:py-24 space-y-48">
             <div className="mx-auto max-w-3xl px-4 sm:px-8 lg:px-0">
                 <h1 className="text-center text-4xl font-semibold lg:text-5xl">צרו איתנו קשר</h1>
                 <p className="mt-4 text-center flex items-center justify-center gap-2 font-rubik lg:text-lg">
