@@ -73,23 +73,12 @@ function PhoneSection() {
                     </div>
                 </div>
                 <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-2">
-                    {/* <Button asChild size="lg" className="group font-bold gap-2 px-8! h-11 text-lg w-full sm:w-auto">
-                        <Link href={`tel:${PHONE_AGENT_NUMBER}`} target="_blank" rel="noreferrer">
-                            נסו את הנציג הטלפוני שלנו
-                            <ArrowLeft className="group-hover:mr-1 transition-[margin]" />
-                        </Link>
-                    </Button> */}
-                    <Button
-                        asChild
-                        size="lg"
-                        className="group font-bold gap-2 px-8! h-11 text-lg w-full sm:w-auto pointer-events-none opacity-50"
-                    >
+                    <Button asChild size="lg" className="group font-bold gap-2 px-8! h-11 text-lg w-full sm:w-auto">
                         <Link href={`tel:${PHONE_AGENT_NUMBER}`} target="_blank" rel="noreferrer">
                             נסו את הנציג הטלפוני שלנו
                             <ArrowLeft className="group-hover:mr-1 transition-[margin]" />
                         </Link>
                     </Button>
-                    <p className="text-sm font-rubik mr-2">מגיע בימים הקרובים...</p>
                     {/* <Button
                         asChild
                         size="lg"
