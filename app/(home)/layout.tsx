@@ -6,7 +6,12 @@ import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
-    title: "מערכות חכמות לעסקים בישראל",
+    title: {
+        template: "זאפלי — %s",
+        default: "זאפלי — מערכות אוטומציה ו-AI חכמות לעסקים בישראל",
+    },
+    description:
+        "נציגי AI טלפוניים, צ'אטבוטים, אוטומציות וואטסאפ ועוד – צוות זאפלי בונה מערכות חכמות שחוסכות 5-10 שעות בשבוע לעסקים ועצמאים בישראל. שיחת ייעוץ ראשונה חינם.",
 };
 
 export default function HomeLayout({ children }: React.PropsWithChildren) {

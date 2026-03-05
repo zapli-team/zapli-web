@@ -7,7 +7,7 @@ function Footer() {
     return (
         <footer className="py-16 md:py-32">
             <div className="mx-auto max-w-5xl px-6 space-y-8">
-                <Link href="/" aria-label="go home" className="mx-auto block size-fit">
+                <Link href="/" aria-label="זאפלי — חזרה לעמוד הראשי" className="mx-auto block size-fit">
                     <Logo />
                 </Link>
                 <span className="block text-center text-sm tracking-wide">
@@ -21,7 +21,7 @@ function Footer() {
                         כתבו לנו כאן
                     </Link>
                 </span>
-                <div className="flex flex-wrap justify-center gap-6 text-sm tracking-wide">
+                <nav aria-label="ניווט תחתון" className="flex flex-wrap justify-center gap-6 text-sm tracking-wide">
                     {NAVIGATION.map((link) => (
                         <Link
                             key={link.href}
@@ -31,12 +31,13 @@ function Footer() {
                             <span>{link.title}</span>
                         </Link>
                     ))}
-                </div>
-                <div dir="ltr" className="flex flex-wrap justify-center gap-6 text-sm">
+                </nav>
+                <div dir="ltr" aria-label="רשתות חברתיות" className="flex flex-wrap justify-center gap-6 text-sm">
                     {SOCIALS.map((social) => (
                         <Link
                             key={social.href}
                             href={social.href}
+                            aria-label={social.title || social.href}
                             className="text-muted-foreground hover:text-primary"
                             target="_blank"
                             rel="noreferrer"

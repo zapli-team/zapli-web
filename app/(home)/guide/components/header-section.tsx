@@ -2,7 +2,11 @@ import { CheckCircle2 } from "lucide-react";
 
 function HeaderSection() {
     return (
-        <section id="header" className="container mx-auto px-4 pb-16 md:pb-24 pt-48">
+        <section
+            id="header"
+            aria-label="מדריך אוטומציות לעסקים"
+            className="container mx-auto px-4 pb-16 md:pb-24 pt-48"
+        >
             <div className="max-w-4xl mx-auto text-center">
                 <div className="inline-block mb-4 px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium">
                     מדריך חינמי להורדה

@@ -26,9 +26,10 @@ function PhoneSection() {
                                 <Image
                                     src="/media/phone-screen.png"
                                     className="h-96 object-contain w-fit rounded-2xl border-2 mx-auto shadow-2xl"
-                                    alt="phone screen"
+                                    alt="הדגמת נציג AI טלפוני של זאפלי – ממשק שיחה חכם בעברית"
                                     width={1080}
                                     height={1920}
+                                    priority
                                 />
                             </div>
                         </div>

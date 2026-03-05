@@ -3,7 +3,6 @@ import "./globals.css";
 
 import { Roboto, Rubik } from "next/font/google";
 import LocalFont from "next/font/local";
-import Script from "next/script";
 
 import { Toaster } from "@/components/ui/sonner";
 import QueryProvider from "@/providers/query-provider";
@@ -39,22 +38,78 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-    title: { template: "זאפלי | %s", default: "זאפלי" },
+    metadataBase: new URL("https://zapli.co.il"),
+    title: { template: "זאפלי — %s", default: "זאפלי — מערכות אוטומציה ובינה מלאכותית לעסקים בישראל" },
     description:
-        "מערכות אוטומציה ו-AI פשוטות לעסקים ופרילנסרים בישראל. חוסכים זמן, מצמצמים כאוס ומנהלים את העסק בביטחון – בלי טכנולוגיה מיותרת. זאפלי בונים מערכות חכמות שמחברות בין וואטסאפ, גוגל, CRM ו-AI כדי להוריד עומס מהעסק שלך. פתרונות פשוטים, חכמים, ובעברית – שנבנו במיוחד לעסקים ישראליים.",
+        "זאפלי בונה מערכות אוטומציה ו-AI חכמות לעסקים קטנים ובינוניים בישראל. חיבור בין וואטסאפ, גוגל, CRM וכלי AI – לחיסכון בזמן, הפחתת עומס וניהול עסק מסודר. פתרונות פשוטים, בעברית, בהתאמה אישית.",
+    alternates: {
+        canonical: "https://zapli.co.il",
+    },
+    keywords: [
+        "אוטומציה לעסקים",
+        "בינה מלאכותית לעסקים",
+        "AI לעסקים בישראל",
+        "אוטומציה לעסקים קטנים",
+        "צ'אטבוט לעסק",
+        "נציג AI טלפוני",
+        "חיבור מערכות עסקיות",
+        "זאפלי",
+        "אוטומציה וואטסאפ",
+        "ייעול תהליכי עבודה",
+    ],
+    openGraph: {
+        type: "website",
+        locale: "he_IL",
+        siteName: "זאפלי",
+        title: "זאפלי — מערכות אוטומציה ובינה מלאכותית לעסקים בישראל",
+        description: "מערכות אוטומציה ו-AI חכמות שחוסכות זמן ומייעלות את העסק שלך. פתרונות בהתאמה אישית לשוק הישראלי.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "זאפלי — אוטומציה ו-AI לעסקים בישראל",
+        description: "מערכות חכמות שמחברות בין וואטסאפ, גוגל, CRM ו-AI כדי להוריד עומס מהעסק שלך.",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "זאפלי",
+        alternateName: "Zapli",
+        url: "https://zapli.co.il",
+        email: "contact@zapli.co.il",
+        description:
+            "זאפלי בונה מערכות אוטומציה ו-AI חכמות לעסקים קטנים ובינוניים בישראל. חיבור בין וואטסאפ, גוגל, CRM וכלי AI.",
+        areaServed: {
+            "@type": "Country",
+            name: "Israel",
+        },
+        knowsLanguage: ["he", "en"],
+        serviceType: [
+            "אוטומציה לעסקים",
+            "בינה מלאכותית לעסקים",
+            "צ'אטבוט וואטסאפ",
+            "נציג AI טלפוני",
+            "חיבור מערכות עסקיות",
+            "ייעוץ טכנולוגי",
+        ],
+        sameAs: [
+            "https://www.facebook.com/zapli.co.il",
+            "https://www.instagram.com/roybarzilay1",
+            "https://www.youtube.com/@roybarzilay1",
+            "https://www.tiktok.com/@roybarzilay1",
+        ],
+    };
+
     return (
         <html lang="he" dir="rtl" className="dark" suppressHydrationWarning>
-            <Script
-                src="https://cdn.userway.org/widget.js"
-                data-language="he"
-                data-widget_layout="full"
-                data-account="pBMlEOnXjR"
-                strategy="afterInteractive"
-            />
             <body className={cn("antialiased", ploni.variable, rubik.variable, roboto.variable)}>
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
                 <QueryProvider>{children}</QueryProvider>
                 <Toaster />
             </body>

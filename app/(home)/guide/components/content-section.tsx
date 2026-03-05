@@ -7,7 +7,7 @@ import { GuideForm } from "./guide-form";
 
 function ContentSection() {
     return (
-        <section id="content" className="container max-w-full mx-auto px-4 pb-16">
+        <section id="content" aria-label="תוכן המדריך וטופס הורדה" className="container max-w-full mx-auto px-4 pb-16">
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-start">
                 <div className="space-y-6 max-md:order-1">
                     <div>

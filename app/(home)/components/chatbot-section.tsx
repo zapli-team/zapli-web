@@ -34,7 +34,7 @@ function ChatbotSection() {
                             <Image
                                 src="/media/chatbot-screen.png"
                                 className="rounded-[12px]"
-                                alt="chatbot screen"
+                                alt="צ'אטבוט וואטסאפ של זאפלי – שיחה אוטומטית עם לקוח בעברית כולל הודעות קוליות"
                                 width={1410}
                                 height={1182}
                             />

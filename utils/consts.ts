@@ -42,7 +42,6 @@ export const SOCIALS = [
         color: "#25D366",
     },
     {
-        title: "contact@zapli.co.il",
         icon: TbMailFilled,
         href: "mailto:contact@zapli.co.il",
         color: "#D93025",

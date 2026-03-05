@@ -1,10 +1,17 @@
 import { ArrowDown } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
 
 import { Card } from "@/components/ui/card";
 import { SOCIALS } from "@/utils/consts";
 
 import { ContactForm } from "./contact-form";
+
+export const metadata: Metadata = {
+    title: "צרו קשר",
+    description:
+        "רוצים לשדרג את העסק עם אוטומציה ו-AI? מלאו טופס קצר או קבעו שיחת ייעוץ חינם עם צוות זאפלי – נחזור אליכם בוואטסאפ תוך דקות.",
+};
 
 export default function ContactPage() {
     return (
@@ -37,15 +44,17 @@ export default function ContactPage() {
                 </Card>
             </div>
             <div id="book" className="space-y-12 px-4">
-                <h1 className="text-center text-3xl sm:text-4xl font-semibold lg:text-5xl">
+                <h2 className="text-center text-3xl sm:text-4xl font-semibold lg:text-5xl">
                     תתאמו איתנו שיחת ייעוץ חינם
-                </h1>
+                </h2>
                 <div className="bg-white mx-auto max-w-7xl h-[80vh] rounded-2xl overflow-hidden">
                     <iframe
                         src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2q1uDPwIvAxsNTUPA5JYpr6VvkRQ2RjevIbD33AhviawJ-fO-Sq2Nv_72em-9j8nfu8YgC_QFk?gv=true&hl=he&ctz=Asia/Jerusalem"
+                        title="קביעת שיחת ייעוץ חינם עם זאפלי"
                         className="border-none"
                         width="100%"
                         height="100%"
+                        loading="lazy"
                     />
                 </div>
             </div>

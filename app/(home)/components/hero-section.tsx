@@ -1,14 +1,19 @@
 import { Star } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { CLIENTS } from "@/utils/consts";
 
 function HeroSection() {
     return (
-        <section id="hero" className="pt-10 sm:pt-[calc(50vh-250px)] flex justify-center">
+        <section
+            id="hero"
+            aria-label="אוטומציה חכמה לעסקים בישראל"
+            className="pt-10 sm:pt-[calc(50vh-250px)] flex justify-center"
+        >
             <div className="container text-center px-10">
                 <div className="mx-auto flex max-w-screen-lg flex-col gap-6">
                     <h1 className="text-4xl font-extrabold lg:text-6xl">
@@ -20,16 +25,23 @@ function HeroSection() {
                         באמת.
                     </p>
                 </div>
-                <Button asChild className="mt-10 text-xl font-bold px-12 py-7">
+                <Button asChild className="mt-10 text-xl font-bold px-16 py-6">
                     <Link href="/contact#book">לשיחת ייעוץ חינם</Link>
                 </Button>
                 <div className="mx-auto mt-10 flex w-fit flex-col items-center gap-4 sm:flex-row">
-                    <span className="mx-4 inline-flex items-center -space-x-2">
+                    <span className="mx-4 inline-flex items-center -space-x-2" aria-label="לקוחות מרוצים">
                         {CLIENTS.map((client) => (
                             <Tooltip key={client.src}>
                                 <TooltipTrigger asChild>
-                                    <Avatar className="size-10 border">
-                                        <AvatarImage src={client.src} alt={client.name} />
+                                    <Avatar className="size-8">
+                                        <Image
+                                            data-slot="avatar-image"
+                                            className="aspect-square size-full object-cover"
+                                            src={client.src}
+                                            alt={client.name}
+                                            width={64}
+                                            height={64}
+                                        />
                                     </Avatar>
                                 </TooltipTrigger>
                                 <TooltipContent side="bottom">
@@ -38,13 +50,19 @@ function HeroSection() {
                             </Tooltip>
                         ))}
                     </span>
-                    <div className="mt-2 flex flex-col items-center">
-                        <div className="flex items-center gap-1">
+                    <div className="mt-2 flex flex-col items-center gap-1">
+                        <div className="flex items-center" role="img" aria-label="דירוג 5 מתוך 5 כוכבים">
                             {[...Array(5)].map((_, index) => (
-                                <Star key={index} className="size-5 fill-yellow-400 text-yellow-400" />
+                                <Star
+                                    key={index}
+                                    className="size-4 fill-yellow-400 text-yellow-400"
+                                    aria-hidden="true"
+                                />
                             ))}
                         </div>
-                        <p className="text-left font-medium text-muted-foreground">7+ שנות ניסיון</p>
+                        <p className="text-left font-medium text-muted-foreground text-xs tracking-wide">
+                            7+ שנות ניסיון
+                        </p>
                     </div>
                 </div>
             </div>

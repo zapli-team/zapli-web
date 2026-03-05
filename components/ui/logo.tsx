@@ -5,6 +5,8 @@ interface LogoProps extends React.ComponentProps<"svg"> {}
 function Logo({ className, ...props }: LogoProps) {
     return (
         <svg
+            role="img"
+            aria-label="זאפלי"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
             width="1008"

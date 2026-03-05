@@ -7,7 +7,7 @@ import { WHATSAPP_BOT_URL } from "@/utils/consts";
 
 function ContactSection() {
     return (
-        <section id="contact" className="py-16 md:py-24">
+        <section id="contact" aria-label="יצירת קשר" className="py-16 md:py-24">
             <div className="mx-auto max-w-5xl px-6">
                 <div className="text-center">
                     <h2 className="text-balance text-4xl font-semibold lg:text-5xl">איך אפשר להתחיל?</h2>

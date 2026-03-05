@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 function TestimonaiSection() {
     return (
-        <section className="py-24 md:py-32">
+        <section aria-label="המלצות לקוחות" className="py-24 md:py-32">
             <div className="mx-auto flex flex-col px-6 md:grid md:max-w-5xl md:grid-cols-2 md:gap-12">
                 <div className="mt-6 flex flex-col gap-12">
                     <div className="space-y-6">
@@ -30,7 +30,7 @@ function TestimonaiSection() {
                             <Image
                                 src="/media/clients/claro.jpg"
                                 className="size-16 border"
-                                alt="claro logo"
+                                alt="לוגו של Claro – מותג אופנה ישראלי"
                                 width={512}
                                 height={512}
                             />
@@ -54,6 +54,7 @@ function TestimonaiSection() {
                             muted
                             playsInline
                             controls
+                            aria-label="עדות של ירדן צור ממותג Claro על השירות של זאפלי"
                             className="w-full rounded-sm"
                         />
                     </div>

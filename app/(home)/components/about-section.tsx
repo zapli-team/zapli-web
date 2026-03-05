@@ -7,7 +7,7 @@ import { TEAM } from "@/utils/consts";
 
 function AboutSection() {
     return (
-        <section id="about" className="py-24 md:py-32 bg-background">
+        <section id="about" aria-label="אודות צוות זאפלי" className="py-24 md:py-32 bg-background">
             <div className="mx-auto max-w-5xl px-6">
                 <div className="grid gap-6 md:grid-cols-2 md:gap-12">
                     <div className="space-y-6">
@@ -56,8 +56,8 @@ function AboutSection() {
                             <Avatar className="size-20 border">
                                 <AvatarImage src={member.src} alt={member.name} />
                             </Avatar>
-                            <h2 className="whitespace-nowrap mt-4 font-medium text-lg">{member.name}</h2>
-                            <div className="font-rubik text-muted-foreground">{member.title}</div>
+                            <h3 className="whitespace-nowrap mt-4 font-medium text-lg">{member.name}</h3>
+                            <p className="font-rubik text-muted-foreground">{member.title}</p>
                         </div>
                     ))}
                 </div>
