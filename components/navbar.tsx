@@ -1,4 +1,3 @@
-import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -10,7 +9,7 @@ function Navbar({ className, ...props }: React.ComponentProps<"header">) {
     return (
         <header
             className={cn(
-                "flex w-full items-center justify-between px-4 py-4 sm:px-6",
+                "fixed top-0 z-100 flex w-full items-center justify-between bg-[#030303] px-4 py-3 sm:px-6",
                 className,
             )}
             {...props}
@@ -25,7 +24,7 @@ function Navbar({ className, ...props }: React.ComponentProps<"header">) {
             <nav
                 dir="ltr"
                 aria-label="רשתות חברתיות"
-                className="font-rubik flex items-center justify-center gap-5 sm:gap-6 lg:gap-8"
+                className="font-rubik flex items-center justify-center gap-5 max-sm:sr-only"
             >
                 {SOCIALS.map((social, index) => (
                     <Link
@@ -49,10 +48,7 @@ function Navbar({ className, ...props }: React.ComponentProps<"header">) {
                 ))}
             </nav>
             <Button asChild className="gap-1 font-semibold tracking-wide">
-                <Link href="/contact">
-                    צרו קשר
-                    <ChevronLeft className="size-3" />
-                </Link>
+                <Link href="/contact">צרו קשר</Link>
             </Button>
         </header>
     );

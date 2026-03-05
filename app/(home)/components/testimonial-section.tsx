@@ -11,7 +11,7 @@ function TestimonaiSection() {
                 <div className="mt-6 flex flex-col gap-12">
                     <div className="space-y-6">
                         <h2 className="text-3xl font-semibold text-balance md:text-4xl lg:text-5xl">
-                            מה הלקוחות חושבים עלינו?
+                            מה לקוחות חושבים עלינו?
                         </h2>
                         <p className="text-muted-foreground font-rubik">
                             בעלי עסקים שכבר עברו לזאפלי מספרים איך סוף-סוף
@@ -20,10 +20,10 @@ function TestimonaiSection() {
                         </p>
                         <Button
                             asChild
-                            className="gap-1 font-semibold tracking-wide"
+                            className="gap-1 px-6! font-semibold tracking-wide"
                         >
                             <Link href="/contact">
-                                צרו קשר
+                                צרו איתנו קשר
                                 <ChevronLeft className="size-3" />
                             </Link>
                         </Button>
@@ -33,7 +33,7 @@ function TestimonaiSection() {
                         <div className="flex items-center justify-center">
                             <Image
                                 src="/media/clients/claro.jpg"
-                                className="size-16 border"
+                                className="size-16"
                                 alt="לוגו של Claro – מותג אופנה ישראלי"
                                 width={512}
                                 height={512}
@@ -54,8 +54,8 @@ function TestimonaiSection() {
                     </div>
                 </div>
 
-                <div className="-mx-6 mt-8 [mask-image:radial-gradient(ellipse_100%_100%_at_50%_0%,#000_70%,transparent_100%)] px-6 sm:mx-auto sm:max-w-md md:-mx-6 md:mt-0 md:mr-0 md:ml-auto">
-                    <div className="bg-background dark:bg-muted/50 rounded-xl border p-3 shadow-lg md:pb-12">
+                <div className="[mask-image:radial-gradient(ellipse_100%_100%_at_50%_0%,#000_70%,transparent_100%)]/ -mx-6 mt-8 px-6 sm:mx-auto sm:max-w-md md:-mx-6 md:mt-0 md:mr-0 md:ml-auto">
+                    <div className="bg-background dark:bg-muted/50 overflow-hidden rounded-xl">
                         <video
                             src="/media/clients/yarden.mp4"
                             autoPlay

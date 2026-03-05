@@ -5,6 +5,7 @@ import { Roboto, Rubik } from "next/font/google";
 import LocalFont from "next/font/local";
 
 import { Toaster } from "@/components/ui/sonner";
+import LenisProvider from "@/providers/lenis-provider";
 import QueryProvider from "@/providers/query-provider";
 import { cn } from "@/utils/funcs";
 
@@ -127,7 +128,9 @@ export default function RootLayout({
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
-                <QueryProvider>{children}</QueryProvider>
+                <LenisProvider>
+                    <QueryProvider>{children}</QueryProvider>
+                </LenisProvider>
                 <Toaster />
             </body>
         </html>

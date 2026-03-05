@@ -2,15 +2,17 @@ import { ArrowLeft, ChartLine, Phone, Volume2, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { DottedMap } from "@/components/dotted-map";
 import { Button } from "@/components/ui/button";
 import { PHONE_AGENT_NUMBER } from "@/utils/consts";
 
 function PhoneSection() {
     return (
-        <section id="phone" className="overflow-hidden py-16 md:py-32">
-            <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-12">
-                <div className="relative z-10 max-w-2xl">
+        <section
+            id="phone"
+            className="flex min-h-screen items-center overflow-hidden py-16 md:py-32"
+        >
+            <div className="mx-auto max-w-5xl">
+                <div className="relative z-10 max-w-2xl px-6">
                     <h2 className="text-4xl font-semibold lg:text-5xl">
                         הנציג הטלפוני המתקדם בארץ
                     </h2>
@@ -20,25 +22,15 @@ function PhoneSection() {
                         פעולות אוטומטית — ברמה שלא נעשתה בארץ עד היום.
                     </p>
                 </div>
-                <div className="relative -mx-4 mask-x-from-75% mask-x-to-95% mask-b-from-75% mask-b-to-95% pt-3 pl-3 md:-mx-12">
-                    <div className="perspective-midrange">
-                        <div className="rotate-x-6 -skew-6">
-                            <div className="relative aspect-88/36">
-                                <DottedMap className="text-primary/80 absolute top-10 -z-20" />
-                                <div className="absolute top-[calc(50%+50px)] left-[calc(50%+50px)] -z-10 h-full w-32 -translate-1/2 rounded-full bg-black blur-2xl" />
-                                <Image
-                                    src="/media/phone-screen.png"
-                                    className="mx-auto h-96 w-fit rounded-2xl border-2 object-contain shadow-2xl"
-                                    alt="הדגמת נציג AI טלפוני של זאפלי – ממשק שיחה חכם בעברית"
-                                    width={1080}
-                                    height={1920}
-                                    priority
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="relative mx-auto grid grid-cols-2 gap-x-3 gap-y-6 sm:gap-8 lg:grid-cols-4">
+                <Image
+                    src="/media/phone-agent.png"
+                    className="mx-auto h-[70vh] w-auto object-cover"
+                    alt="הדגמת נציג AI טלפוני של זאפלי – ממשק שיחה חכם בעברית"
+                    width={540}
+                    height={960}
+                    priority
+                />
+                <div className="bg-background relative mx-auto grid grid-cols-2 gap-x-3 gap-y-6 px-8 py-6 sm:gap-8 md:rounded-sm lg:grid-cols-4">
                     <div className="space-y-3">
                         <div className="flex items-center gap-2">
                             <Zap className="size-4" />
@@ -85,7 +77,7 @@ function PhoneSection() {
                         </p>
                     </div>
                 </div>
-                <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row">
+                <div className="mt-12 flex flex-col items-center justify-center gap-2 px-6 sm:flex-row">
                     <Button
                         asChild
                         size="lg"
@@ -100,16 +92,6 @@ function PhoneSection() {
                             <ArrowLeft className="transition-[margin] group-hover:mr-1" />
                         </Link>
                     </Button>
-                    {/* <Button
-                        asChild
-                        size="lg"
-                        variant="outline"
-                        className="group font-bold gap-2 px-8! h-11 text-lg w-full sm:w-auto"
-                    >
-                        <Link href={`tel:${PHONE_AGENT_NUMBER}`} target="_blank" rel="noreferrer">
-                            מה המחיר של זה?
-                        </Link>
-                    </Button> */}
                 </div>
             </div>
         </section>

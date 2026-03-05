@@ -50,21 +50,6 @@ export default function ContactPage() {
                     <ContactForm />
                 </Card>
             </div>
-            <div id="book" className="space-y-12 px-4">
-                <h2 className="text-center text-3xl font-semibold sm:text-4xl lg:text-5xl">
-                    תתאמו איתנו שיחת ייעוץ חינם
-                </h2>
-                <div className="mx-auto h-[80vh] max-w-7xl overflow-hidden rounded-2xl bg-white">
-                    <iframe
-                        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2q1uDPwIvAxsNTUPA5JYpr6VvkRQ2RjevIbD33AhviawJ-fO-Sq2Nv_72em-9j8nfu8YgC_QFk?gv=true&hl=he&ctz=Asia/Jerusalem"
-                        title="קביעת שיחת ייעוץ חינם עם זאפלי"
-                        className="border-none"
-                        width="100%"
-                        height="100%"
-                        loading="lazy"
-                    />
-                </div>
-            </div>
         </section>
     );
 }

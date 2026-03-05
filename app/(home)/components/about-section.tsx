@@ -1,7 +1,8 @@
 import { ChevronLeft } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { TEAM } from "@/utils/consts";
 
@@ -18,22 +19,6 @@ function AboutSection() {
                         <h2 className="text-4xl font-medium">
                             אנחנו צוות קטן עם תשוקה לטכנולוגיה ועסקים
                         </h2>
-                        {/* <div className="mx-4 inline-flex items-center -space-x-2">
-                            {TEAM.map((member) => (
-                                <Tooltip key={member.src}>
-                                    <TooltipTrigger asChild>
-                                        <Avatar className="size-10 border">
-                                            <AvatarImage src={member.src} alt={member.name} />
-                                        </Avatar>
-                                    </TooltipTrigger>
-                                    <TooltipContent side="bottom">
-                                        <p>
-                                            <span className="font-semibold">{member.name}</span> {member.title}
-                                        </p>
-                                    </TooltipContent>
-                                </Tooltip>
-                            ))}
-                        </div> */}
                     </div>
                     <div className="font-rubik space-y-4">
                         <p>
@@ -57,7 +42,7 @@ function AboutSection() {
                             size="sm"
                             className="mt-6 gap-1 pl-1.5"
                         >
-                            <Link href="/contact#book">
+                            <Link href="/contact">
                                 <span>לקביעת שיחת ייעוץ חינם</span>
                                 <ChevronLeft className="size-2" />
                             </Link>
@@ -70,10 +55,14 @@ function AboutSection() {
                             key={member.name}
                             className="flex flex-col items-center p-4"
                         >
-                            <Avatar className="size-20 border">
-                                <AvatarImage
+                            <Avatar className="size-20">
+                                <Image
+                                    data-slot="avatar-image"
+                                    className="aspect-square size-full object-cover"
                                     src={member.src}
                                     alt={member.name}
+                                    width={128}
+                                    height={128}
                                 />
                             </Avatar>
                             <h3 className="mt-4 text-lg font-medium whitespace-nowrap">

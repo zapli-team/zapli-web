@@ -16,23 +16,23 @@ function HeroSection() {
         <section
             id="hero"
             aria-label="אוטומציה חכמה לעסקים בישראל"
-            className="-mt-10 flex min-h-screen items-center justify-center"
+            className="-mb-20 flex min-h-screen items-center justify-center md:-mb-[18vh]"
         >
-            <div className="container px-10 text-center">
+            <div className="container px-4 text-center sm:px-10">
                 <div className="mx-auto flex max-w-screen-lg flex-col gap-6">
                     <h1 className="text-4xl font-extrabold lg:text-6xl">
                         ליווי AI לעסק שלך: אוטומציה חכמה שחוסכת זמן ומייצרת שקט
                         תעשייתי
                     </h1>
-                    <p className="font-rubik text-muted-foreground text-balance lg:text-lg">
+                    <p className="font-rubik text-muted-foreground text-balance max-sm:hidden lg:text-lg">
                         נציגי AI טלפוניים, צ'אטבוטים, וואטסאפ, ועוד... אנחנו לא
                         סוכנות טכנולוגית “גדולה”, אלא צוות שמבין את המציאות של
                         עסקים בישראל. עם ניסיון טכנולוגי צבאי של 5+ שנים, נבנה
                         לכם פתרון חכם ופשוט שעובד באמת.
                     </p>
                 </div>
-                <Button asChild className="mt-10 px-16 py-6 text-xl font-bold">
-                    <Link href="/contact#book">לשיחת ייעוץ חינם</Link>
+                <Button asChild className="mt-10 px-16 py-6 text-2xl font-bold">
+                    <Link href="/contact">התחילו כאן</Link>
                 </Button>
                 <div className="mx-auto mt-10 flex w-fit flex-col items-center gap-4 sm:flex-row">
                     <span
