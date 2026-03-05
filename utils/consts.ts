@@ -8,7 +8,9 @@ import {
     TbMailFilled,
 } from "react-icons/tb";
 
-const DEFAULT_WHATSAPP_MSG = encodeURIComponent("מה קורה? אשמח לדבר איתכם על העסק שלי");
+const DEFAULT_WHATSAPP_MSG = encodeURIComponent(
+    "מה קורה? אשמח לדבר איתכם על העסק שלי",
+);
 export const WHATSAPP_BOT_NUMBER = "972533879325";
 export const WHATSAPP_HUMAN_NUMBER = "972507537633";
 export const WHATSAPP_BOT_URL = `https://wa.me/${WHATSAPP_BOT_NUMBER}?text=${DEFAULT_WHATSAPP_MSG}`;
@@ -129,7 +131,8 @@ export const SERVICES = [
     {
         icon: Link,
         title: "חיבור בין מערכות וכלים קיימים",
-        description: "נחבר בין WhatsApp, Gmail, Excel, CRM ועוד – כדי שכל המידע יעבוד יחד ויחסוך כאב ראש.",
+        description:
+            "נחבר בין WhatsApp, Gmail, Excel, CRM ועוד – כדי שכל המידע יעבוד יחד ויחסוך כאב ראש.",
     },
     {
         icon: Puzzle,

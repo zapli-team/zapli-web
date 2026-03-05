@@ -6,7 +6,14 @@ import { toast } from "sonner";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,8 +22,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 
 const contactSchema = z.object({
-    firstName: z.string("שם פרטי הוא שדה חובה").trim().min(2, "שם פרטי חייב להיות באורך של 2 תווים לפחות"),
-    lastName: z.string("שם משפחה הוא שדה חובה").trim().min(2, "שם משפחה חייב להיות באורך של 2 תווים לפחות"),
+    firstName: z
+        .string("שם פרטי הוא שדה חובה")
+        .trim()
+        .min(2, "שם פרטי חייב להיות באורך של 2 תווים לפחות"),
+    lastName: z
+        .string("שם משפחה הוא שדה חובה")
+        .trim()
+        .min(2, "שם משפחה חייב להיות באורך של 2 תווים לפחות"),
     email: z.email("דוא" + '"' + "ל הוא שדה חובה").trim(),
     phone: z
         .string("מס' טלפון הוא שדה חובה")
@@ -47,8 +60,14 @@ function ContactForm({ className, ...props }: React.ComponentProps<"form">) {
     const { mutate: send, isPending } = useMutation({
         mutationKey: ["send-contact"],
         mutationFn: async (data: FormValues) =>
-            Promise.all([axios.post("/api/whatsapp/contact", data), axios.post("/api/email/contact", data)]),
-        onError: () => toast.error("משהו השתבש בשליחת הבקשה שלכם. אנא נסו שוב מאוחר יותר."),
+            Promise.all([
+                axios.post("/api/whatsapp/contact", data),
+                axios.post("/api/email/contact", data),
+            ]),
+        onError: () =>
+            toast.error(
+                "משהו השתבש בשליחת הבקשה שלכם. אנא נסו שוב מאוחר יותר.",
+            ),
         onSuccess: () => {
             toast.success("בקשתכם נשלחה בהצלחה!");
             form.reset({ ...form.getValues(), message: "" });
@@ -59,10 +78,12 @@ function ContactForm({ className, ...props }: React.ComponentProps<"form">) {
         <Form {...form}>
             <form
                 {...props}
-                onSubmit={form.handleSubmit((d) => send({ ...d, phone: "972" + d.phone }))}
+                onSubmit={form.handleSubmit((d) =>
+                    send({ ...d, phone: "972" + d.phone }),
+                )}
                 className={cn("space-y-6", className)}
             >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     <FormField
                         control={form.control}
                         name="firstName"
@@ -70,7 +91,11 @@ function ContactForm({ className, ...props }: React.ComponentProps<"form">) {
                             <FormItem>
                                 <FormLabel>שם פרטי</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="אבי" autoComplete="given-name" {...field} />
+                                    <Input
+                                        placeholder="אבי"
+                                        autoComplete="given-name"
+                                        {...field}
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -84,7 +109,11 @@ function ContactForm({ className, ...props }: React.ComponentProps<"form">) {
                             <FormItem>
                                 <FormLabel>שם משפחה</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="כהן" autoComplete="family-name" {...field} />
+                                    <Input
+                                        placeholder="כהן"
+                                        autoComplete="family-name"
+                                        {...field}
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -130,7 +159,13 @@ function ContactForm({ className, ...props }: React.ComponentProps<"form">) {
                                     inputMode="tel"
                                     {...field}
                                     value={"+972" + field.value}
-                                    onChange={(e) => field.onChange(e.target.value.slice(4).replace(/\D/g, ""))}
+                                    onChange={(e) =>
+                                        field.onChange(
+                                            e.target.value
+                                                .slice(4)
+                                                .replace(/\D/g, ""),
+                                        )
+                                    }
                                 />
                             </FormControl>
                             <FormMessage />
@@ -145,14 +180,22 @@ function ContactForm({ className, ...props }: React.ComponentProps<"form">) {
                         <FormItem>
                             <FormLabel>הודעה</FormLabel>
                             <FormControl>
-                                <Textarea placeholder="כיתבו כאן את ההודעה שלכם..." className="min-h-32" {...field} />
+                                <Textarea
+                                    placeholder="כיתבו כאן את ההודעה שלכם..."
+                                    className="min-h-32"
+                                    {...field}
+                                />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
 
-                <Button type="submit" className="w-full text-lg h-12 font-semibold rounded-full" disabled={isPending}>
+                <Button
+                    type="submit"
+                    className="h-12 w-full rounded-full text-lg font-semibold"
+                    disabled={isPending}
+                >
                     {isPending && <Spinner />}
                     שליחה
                 </Button>

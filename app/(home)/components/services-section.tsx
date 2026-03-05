@@ -1,41 +1,64 @@
-import { Card, CardContent, CardDecorator, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+    Card,
+    CardContent,
+    CardDecorator,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
 import { SERVICES } from "@/utils/consts";
 
 function ServicesSection() {
     return (
-        <section id="services" aria-label="שירותי אוטומציה ובינה מלאכותית" className="py-16 md:py-32">
+        <section
+            id="services"
+            aria-label="שירותי אוטומציה ובינה מלאכותית"
+            className="py-16 md:py-32"
+        >
             <div className="@container mx-auto max-w-5xl px-6">
                 <div className="text-center">
-                    <h2 className="text-balance text-4xl font-semibold lg:text-5xl">מה אנחנו עושים</h2>
-                    <p className="mt-4 font-rubik lg:text-lg">
-                        אנחנו עוזרים לעצמאים ובעלי עסקים להפוך את העסק שלהם ליעיל, רגוע ומסודר – בעזרת אוטומציות חכמות
-                        וכלי AI פשוטים לשימוש. אין לנו “חבילות קבועות” – כל פתרון מותאם אישית לצרכים שלך ולדרך שבה אתה
-                        עובד.
+                    <h2 className="text-4xl font-semibold text-balance lg:text-5xl">
+                        מה אנחנו עושים
+                    </h2>
+                    <p className="font-rubik mt-4 lg:text-lg">
+                        אנחנו עוזרים לעצמאים ובעלי עסקים להפוך את העסק שלהם
+                        ליעיל, רגוע ומסודר – בעזרת אוטומציות חכמות וכלי AI
+                        פשוטים לשימוש. אין לנו “חבילות קבועות” – כל פתרון מותאם
+                        אישית לצרכים שלך ולדרך שבה אתה עובד.
                     </p>
                 </div>
-                <div className="max-w-full grid lg:grid-cols-3 mx-auto *:text-center">
+                <div className="mx-auto grid max-w-full *:text-center lg:grid-cols-3">
                     {SERVICES.slice(0, 3).map((service) => (
-                        <Card key={service.title} className="group border-0 shadow-none bg-transparent">
+                        <Card
+                            key={service.title}
+                            className="group border-0 bg-transparent shadow-none"
+                        >
                             <CardHeader>
                                 <CardDecorator>
                                     <service.icon className="size-6" />
                                 </CardDecorator>
-                                <CardTitle className="whitespace-nowrap">{service.title}</CardTitle>
+                                <CardTitle className="whitespace-nowrap">
+                                    {service.title}
+                                </CardTitle>
                             </CardHeader>
-                            <CardContent className="font-rubik text-muted-foreground max-w-lg mx-auto">
+                            <CardContent className="font-rubik text-muted-foreground mx-auto max-w-lg">
                                 {service.description}
                             </CardContent>
                         </Card>
                     ))}
                 </div>
-                <div className="max-w-full flex flex-col lg:flex-row mx-auto *:text-center">
+                <div className="mx-auto flex max-w-full flex-col *:text-center lg:flex-row">
                     {SERVICES.slice(3).map((service) => (
-                        <Card key={service.title} className="group border-0 shadow-none bg-transparent">
+                        <Card
+                            key={service.title}
+                            className="group border-0 bg-transparent shadow-none"
+                        >
                             <CardHeader>
                                 <CardDecorator>
                                     <service.icon className="size-6" />
                                 </CardDecorator>
-                                <CardTitle className="whitespace-nowrap">{service.title}</CardTitle>
+                                <CardTitle className="whitespace-nowrap">
+                                    {service.title}
+                                </CardTitle>
                             </CardHeader>
                             <CardContent className="font-rubik text-muted-foreground">
                                 {service.description}
@@ -43,10 +66,13 @@ function ServicesSection() {
                         </Card>
                     ))}
                 </div>
-                <div className="flex flex-col items-center justify-center my-16 max-w-lg mx-auto">
-                    <h3 className="font-semibold text-lg whitespace-nowrap">🎯 המטרה שלנו</h3>
+                <div className="mx-auto my-16 flex max-w-lg flex-col items-center justify-center">
+                    <h3 className="text-lg font-semibold whitespace-nowrap">
+                        🎯 המטרה שלנו
+                    </h3>
                     <p className="font-rubik mt-px text-center">
-                        לקדם את העסקים בארץ בתחום האוטומציות והבינה המלאכותית עם מערכות שמותאמות לשוק הישראלי.
+                        לקדם את העסקים בארץ בתחום האוטומציות והבינה המלאכותית עם
+                        מערכות שמותאמות לשוק הישראלי.
                     </p>
                 </div>
             </div>

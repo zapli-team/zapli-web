@@ -48,11 +48,16 @@
     --shadow-color: hsl(0 0% 0%);
     --shadow-2xs: 0px 4px 8px -1px hsl(0 0% 0% / 0);
     --shadow-xs: 0px 4px 8px -1px hsl(0 0% 0% / 0);
-    --shadow-sm: 0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 1px 2px -2px hsl(0 0% 0% / 0);
-    --shadow: 0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 1px 2px -2px hsl(0 0% 0% / 0);
-    --shadow-md: 0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 2px 4px -2px hsl(0 0% 0% / 0);
-    --shadow-lg: 0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 4px 6px -2px hsl(0 0% 0% / 0);
-    --shadow-xl: 0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 8px 10px -2px hsl(0 0% 0% / 0);
+    --shadow-sm:
+        0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 1px 2px -2px hsl(0 0% 0% / 0);
+    --shadow:
+        0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 1px 2px -2px hsl(0 0% 0% / 0);
+    --shadow-md:
+        0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 2px 4px -2px hsl(0 0% 0% / 0);
+    --shadow-lg:
+        0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 4px 6px -2px hsl(0 0% 0% / 0);
+    --shadow-xl:
+        0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 8px 10px -2px hsl(0 0% 0% / 0);
     --shadow-2xl: 0px 4px 8px -1px hsl(0 0% 0% / 0);
     --tracking-normal: 0em;
     --spacing: 0.3rem;
@@ -103,11 +108,16 @@
     --shadow-color: hsl(0 0% 0%);
     --shadow-2xs: 0px 4px 8px -1px hsl(0 0% 0% / 0);
     --shadow-xs: 0px 4px 8px -1px hsl(0 0% 0% / 0);
-    --shadow-sm: 0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 1px 2px -2px hsl(0 0% 0% / 0);
-    --shadow: 0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 1px 2px -2px hsl(0 0% 0% / 0);
-    --shadow-md: 0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 2px 4px -2px hsl(0 0% 0% / 0);
-    --shadow-lg: 0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 4px 6px -2px hsl(0 0% 0% / 0);
-    --shadow-xl: 0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 8px 10px -2px hsl(0 0% 0% / 0);
+    --shadow-sm:
+        0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 1px 2px -2px hsl(0 0% 0% / 0);
+    --shadow:
+        0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 1px 2px -2px hsl(0 0% 0% / 0);
+    --shadow-md:
+        0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 2px 4px -2px hsl(0 0% 0% / 0);
+    --shadow-lg:
+        0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 4px 6px -2px hsl(0 0% 0% / 0);
+    --shadow-xl:
+        0px 4px 8px -1px hsl(0 0% 0% / 0), 0px 8px 10px -2px hsl(0 0% 0% / 0);
     --shadow-2xl: 0px 4px 8px -1px hsl(0 0% 0% / 0);
 }
 
@@ -150,7 +160,9 @@
     --font-serif: var(--font-serif);
     --font-rubik: var(--font-rubik);
     --font-roboto: var(--font-roboto);
-    --font-ploni: var(--font-ploni), var(--font-rubik), var(--font-roboto), system-ui, Arial, sans-serif;
+    --font-ploni:
+        var(--font-ploni), var(--font-rubik), var(--font-roboto), system-ui,
+        Arial, sans-serif;
 
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
@@ -172,10 +184,10 @@
         @apply border-border outline-ring/50 selection:bg-primary selection:text-primary-foreground;
     }
     :root {
-        @apply scroll-smooth overflow-x-hidden;
+        @apply overflow-x-hidden scroll-smooth;
     }
     body {
-        @apply h-full bg-background text-foreground font-ploni;
+        @apply bg-background text-foreground font-ploni h-full;
     }
     .userway_buttons_wrapper {
         @apply top-auto! right-auto! bottom-10! left-10! transform-none!;

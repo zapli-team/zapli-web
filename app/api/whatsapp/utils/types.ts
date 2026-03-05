@@ -11,10 +11,20 @@ export type Payload = {
             index?: string;
             parameters: Array<
                 | { type: "text"; parameter_name?: string; text: string }
-                | { type: "currency"; currency: { fallback_value: string; code: string; amount_1000: number } }
+                | {
+                      type: "currency";
+                      currency: {
+                          fallback_value: string;
+                          code: string;
+                          amount_1000: number;
+                      };
+                  }
                 | { type: "date_time"; date_time: { fallback_value: string } }
                 | { type: "image"; image: { link: string } }
-                | { type: "document"; document: { link: string; filename?: string } }
+                | {
+                      type: "document";
+                      document: { link: string; filename?: string };
+                  }
                 | { type: "video"; video: { link: string } }
             >;
         }>;

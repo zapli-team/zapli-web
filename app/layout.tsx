@@ -39,7 +39,10 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://zapli.co.il"),
-    title: { template: "זאפלי — %s", default: "זאפלי — מערכות אוטומציה ובינה מלאכותית לעסקים בישראל" },
+    title: {
+        template: "זאפלי — %s",
+        default: "זאפלי — מערכות אוטומציה ובינה מלאכותית לעסקים בישראל",
+    },
     description:
         "זאפלי בונה מערכות אוטומציה ו-AI חכמות לעסקים קטנים ובינוניים בישראל. חיבור בין וואטסאפ, גוגל, CRM וכלי AI – לחיסכון בזמן, הפחתת עומס וניהול עסק מסודר. פתרונות פשוטים, בעברית, בהתאמה אישית.",
     alternates: {
@@ -62,12 +65,14 @@ export const metadata: Metadata = {
         locale: "he_IL",
         siteName: "זאפלי",
         title: "זאפלי — מערכות אוטומציה ובינה מלאכותית לעסקים בישראל",
-        description: "מערכות אוטומציה ו-AI חכמות שחוסכות זמן ומייעלות את העסק שלך. פתרונות בהתאמה אישית לשוק הישראלי.",
+        description:
+            "מערכות אוטומציה ו-AI חכמות שחוסכות זמן ומייעלות את העסק שלך. פתרונות בהתאמה אישית לשוק הישראלי.",
     },
     twitter: {
         card: "summary_large_image",
         title: "זאפלי — אוטומציה ו-AI לעסקים בישראל",
-        description: "מערכות חכמות שמחברות בין וואטסאפ, גוגל, CRM ו-AI כדי להוריד עומס מהעסק שלך.",
+        description:
+            "מערכות חכמות שמחברות בין וואטסאפ, גוגל, CRM ו-AI כדי להוריד עומס מהעסק שלך.",
     },
     robots: {
         index: true,
@@ -75,7 +80,9 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+    children,
+}: Readonly<{ children: React.ReactNode }>) {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Organization",
@@ -108,8 +115,18 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
     return (
         <html lang="he" dir="rtl" className="dark" suppressHydrationWarning>
-            <body className={cn("antialiased", ploni.variable, rubik.variable, roboto.variable)}>
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <body
+                className={cn(
+                    "antialiased",
+                    ploni.variable,
+                    rubik.variable,
+                    roboto.variable,
+                )}
+            >
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
                 <QueryProvider>{children}</QueryProvider>
                 <Toaster />
             </body>

@@ -15,28 +15,35 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
     return (
-        <section className="py-16 md:py-24 space-y-48">
+        <section className="space-y-48 py-16 md:py-24">
             <div className="mx-auto max-w-3xl px-4 sm:px-8 lg:px-0">
-                <h1 className="text-center text-4xl font-semibold lg:text-5xl">צרו איתנו קשר</h1>
-                <p className="mt-4 text-center flex items-center justify-center gap-2 font-rubik lg:text-lg">
-                    קחו חצי דקה למלא את הטופס ונחזור אליכם בוואטסאפ <ArrowDown className="size-3 hidden md:block" />
+                <h1 className="text-center text-4xl font-semibold lg:text-5xl">
+                    צרו איתנו קשר
+                </h1>
+                <p className="font-rubik mt-4 flex items-center justify-center gap-2 text-center lg:text-lg">
+                    קחו חצי דקה למלא את הטופס ונחזור אליכם בוואטסאפ{" "}
+                    <ArrowDown className="hidden size-3 md:block" />
                 </p>
 
                 <Card className="mx-auto mt-12 max-w-full p-4 pt-8 shadow-md sm:p-16">
                     <div
                         dir="ltr"
-                        className="flex items-center justify-center font-rubik gap-6 border-b border-border/25 pb-6"
+                        className="font-rubik border-border/25 flex items-center justify-center gap-6 border-b pb-6"
                     >
                         {SOCIALS.slice(0, 2).map((social) => (
                             <Link
                                 key={social.href}
                                 href={social.href}
-                                className="relative flex items-center gap-2 hover:text-primary"
+                                className="hover:text-primary relative flex items-center gap-2"
                                 target="_blank"
                                 rel="noreferrer"
                             >
                                 <social.icon size={20} />
-                                {social.title && <span className="hidden md:inline-flex text-sm">{social.title}</span>}
+                                {social.title && (
+                                    <span className="hidden text-sm md:inline-flex">
+                                        {social.title}
+                                    </span>
+                                )}
                             </Link>
                         ))}
                     </div>
@@ -44,10 +51,10 @@ export default function ContactPage() {
                 </Card>
             </div>
             <div id="book" className="space-y-12 px-4">
-                <h2 className="text-center text-3xl sm:text-4xl font-semibold lg:text-5xl">
+                <h2 className="text-center text-3xl font-semibold sm:text-4xl lg:text-5xl">
                     תתאמו איתנו שיחת ייעוץ חינם
                 </h2>
-                <div className="bg-white mx-auto max-w-7xl h-[80vh] rounded-2xl overflow-hidden">
+                <div className="mx-auto h-[80vh] max-w-7xl overflow-hidden rounded-2xl bg-white">
                     <iframe
                         src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2q1uDPwIvAxsNTUPA5JYpr6VvkRQ2RjevIbD33AhviawJ-fO-Sq2Nv_72em-9j8nfu8YgC_QFk?gv=true&hl=he&ctz=Asia/Jerusalem"
                         title="קביעת שיחת ייעוץ חינם עם זאפלי"

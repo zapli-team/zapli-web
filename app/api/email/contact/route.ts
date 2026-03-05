@@ -2,7 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import z from "zod";
 
-import { ContactAdminEmailTemplate, ContactSenderEmailTemplate } from "@/components/email-templates/contact";
+import {
+    ContactAdminEmailTemplate,
+    ContactSenderEmailTemplate,
+} from "@/components/email-templates/contact";
 
 const schema = z.object({
     firstName: z.string(),
@@ -30,9 +33,12 @@ export async function POST(req: NextRequest) {
         });
 
         if (adminEmail.error) {
-            return new NextResponse(`Something went wrong when trying to send the admin email: ${adminEmail.error}`, {
-                status: 500,
-            });
+            return new NextResponse(
+                `Something went wrong when trying to send the admin email: ${adminEmail.error}`,
+                {
+                    status: 500,
+                },
+            );
         }
 
         const senderEmail = await resend.emails.send({
@@ -47,12 +53,17 @@ export async function POST(req: NextRequest) {
                 `Something went wrong when trying to send the sender email: ${JSON.stringify(senderEmail.error)}`,
                 {
                     status: 500,
-                }
+                },
             );
         }
 
-        return NextResponse.json({ admin: adminEmail.data, sender: senderEmail.data });
+        return NextResponse.json({
+            admin: adminEmail.data,
+            sender: senderEmail.data,
+        });
     } catch (error) {
-        return new NextResponse(`Internal Server Error: ${error}`, { status: 500 });
+        return new NextResponse(`Internal Server Error: ${error}`, {
+            status: 500,
+        });
     }
 }

@@ -3,7 +3,8 @@ import { CSSProperties } from "react";
 export const styles: Record<string, CSSProperties> = {
     main: {
         backgroundColor: "#f6f9fc",
-        fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
+        fontFamily:
+            '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
         direction: "rtl",
     },
     container: {

@@ -10,14 +10,18 @@ function TestimonaiSection() {
             <div className="mx-auto flex flex-col px-6 md:grid md:max-w-5xl md:grid-cols-2 md:gap-12">
                 <div className="mt-6 flex flex-col gap-12">
                     <div className="space-y-6">
-                        <h2 className="text-balance text-3xl font-semibold md:text-4xl lg:text-5xl">
+                        <h2 className="text-3xl font-semibold text-balance md:text-4xl lg:text-5xl">
                             מה הלקוחות חושבים עלינו?
                         </h2>
                         <p className="text-muted-foreground font-rubik">
-                            בעלי עסקים שכבר עברו לזאפלי מספרים איך סוף-סוף הפסיקו לרדוף אחרי וואטסאפים, משימות ובלגן -
-                            והעסק התחיל לזרום.
+                            בעלי עסקים שכבר עברו לזאפלי מספרים איך סוף-סוף
+                            הפסיקו לרדוף אחרי וואטסאפים, משימות ובלגן - והעסק
+                            התחיל לזרום.
                         </p>
-                        <Button asChild className="font-semibold tracking-wide gap-1">
+                        <Button
+                            asChild
+                            className="gap-1 font-semibold tracking-wide"
+                        >
                             <Link href="/contact">
                                 צרו קשר
                                 <ChevronLeft className="size-3" />
@@ -36,16 +40,21 @@ function TestimonaiSection() {
                             />
                         </div>
                         <blockquote>
-                            <p>בעל מותג אופנה ישראלי המשלב עיצוב מקורי ואותנטיות שנולדה מהרחוב ומהתרבות הישראלית.</p>
-                            <div className="mt-2 flex gap-2 text-sm font-rubik">
+                            <p>
+                                בעל מותג אופנה ישראלי המשלב עיצוב מקורי
+                                ואותנטיות שנולדה מהרחוב ומהתרבות הישראלית.
+                            </p>
+                            <div className="font-rubik mt-2 flex gap-2 text-sm">
                                 <cite>ירדן צור</cite>
-                                <p className="text-muted-foreground">Founder, Claro</p>
+                                <p className="text-muted-foreground">
+                                    Founder, Claro
+                                </p>
                             </div>
                         </blockquote>
                     </div>
                 </div>
 
-                <div className="-mx-6 px-6 [mask-image:radial-gradient(ellipse_100%_100%_at_50%_0%,#000_70%,transparent_100%)] sm:mx-auto sm:max-w-md md:-mx-6 md:ml-auto md:mr-0 mt-8 md:mt-0">
+                <div className="-mx-6 mt-8 [mask-image:radial-gradient(ellipse_100%_100%_at_50%_0%,#000_70%,transparent_100%)] px-6 sm:mx-auto sm:max-w-md md:-mx-6 md:mt-0 md:mr-0 md:ml-auto">
                     <div className="bg-background dark:bg-muted/50 rounded-xl border p-3 shadow-lg md:pb-12">
                         <video
                             src="/media/clients/yarden.mp4"

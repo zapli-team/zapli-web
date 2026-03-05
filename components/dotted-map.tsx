@@ -16,7 +16,13 @@ function DottedMap({ radius = 0.15, ...props }: DottedMapProps) {
     return (
         <svg viewBox="0 0 120 60" {...props}>
             {points.map((point, index) => (
-                <circle key={index} cx={point.x} cy={point.y} r={radius} fill="currentColor" />
+                <circle
+                    key={index}
+                    cx={point.x}
+                    cy={point.y}
+                    r={radius}
+                    fill="currentColor"
+                />
             ))}
         </svg>
     );

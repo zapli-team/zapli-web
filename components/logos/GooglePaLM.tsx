@@ -1,4 +1,4 @@
-import type { SVGProps } from 'react'
+import type { SVGProps } from "react";
 
 export default function GooglePaLM(props: SVGProps<SVGSVGElement>) {
     return (
@@ -8,7 +8,8 @@ export default function GooglePaLM(props: SVGProps<SVGSVGElement>) {
             height="1em"
             preserveAspectRatio="xMidYMid"
             viewBox="0 0 256 229"
-            {...props}>
+            {...props}
+        >
             <path
                 fill="#F9AB00"
                 d="M128 228.542c9.895 0 17.91-8.015 17.91-17.91V55.413h-35.82v155.219c0 9.895 8.015 17.91 17.91 17.91Z"
@@ -38,5 +39,5 @@ export default function GooglePaLM(props: SVGProps<SVGSVGElement>) {
                 d="M62.33 52.548c30.507 0 56.402 20 65.67 47.76H6.75c-4.97 0-8.283-5.254-6.03-9.687C12.244 68.01 35.497 52.548 62.33 52.548Z"
             />
         </svg>
-    )
+    );
 }

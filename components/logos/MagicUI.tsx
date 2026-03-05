@@ -1,4 +1,4 @@
-import type { SVGProps } from 'react'
+import type { SVGProps } from "react";
 
 export default function MagicUI(props: SVGProps<SVGSVGElement>) {
     return (
@@ -9,7 +9,8 @@ export default function MagicUI(props: SVGProps<SVGSVGElement>) {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="size-6"
-            {...props}>
+            {...props}
+        >
             <rect
                 width={256}
                 height={256}
@@ -33,12 +34,10 @@ export default function MagicUI(props: SVGProps<SVGSVGElement>) {
                     y1={0}
                     x2={128}
                     y2={256}
-                    gradientUnits="userSpaceOnUse">
+                    gradientUnits="userSpaceOnUse"
+                >
                     <stop stopColor="#EF786F" />
-                    <stop
-                        offset={1}
-                        stopColor="#D8595E"
-                    />
+                    <stop offset={1} stopColor="#D8595E" />
                 </linearGradient>
                 <linearGradient
                     id="paint1_linear_601_4643"
@@ -46,22 +45,14 @@ export default function MagicUI(props: SVGProps<SVGSVGElement>) {
                     y1={0.0000037012}
                     x2={236}
                     y2={256}
-                    gradientUnits="userSpaceOnUse">
+                    gradientUnits="userSpaceOnUse"
+                >
                     <stop stopColor="#9E7AFF" />
-                    <stop
-                        offset={0.333333}
-                        stopColor="#FE8BBB"
-                    />
-                    <stop
-                        offset={0.666667}
-                        stopColor="#FFBD7A"
-                    />
-                    <stop
-                        offset={1}
-                        stopColor="#F8EAC3"
-                    />
+                    <stop offset={0.333333} stopColor="#FE8BBB" />
+                    <stop offset={0.666667} stopColor="#FFBD7A" />
+                    <stop offset={1} stopColor="#F8EAC3" />
                 </linearGradient>
             </defs>
         </svg>
-    )
+    );
 }
