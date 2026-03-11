@@ -19,8 +19,6 @@ export const metadata: Metadata = {
     },
 };
 
-export const revalidate = 300; // revalidate every 5 minutes
-
 function formatDate(date: Date) {
     return new Intl.DateTimeFormat("he-IL", {
         year: "numeric",
