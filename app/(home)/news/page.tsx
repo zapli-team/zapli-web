@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     },
 };
 
+export const dynamic = "force-dynamic";
+
 function formatDate(date: Date) {
     return new Intl.DateTimeFormat("he-IL", {
         year: "numeric",
@@ -36,13 +38,13 @@ export default async function NewsPage() {
                 <h1 className="text-4xl font-bold lg:text-5xl">
                     חדשות ומאמרים
                 </h1>
-                <p className="text-muted-foreground text-lg">
+                <p className="text-muted-foreground font-rubik text-lg">
                     עדכונים, מדריכים ותובנות מעולם האוטומציה והבינה המלאכותית
                 </p>
             </header>
 
             {articles.length === 0 ? (
-                <p className="text-muted-foreground py-20 text-center text-lg">
+                <p className="text-muted-foreground font-rubik py-20 text-center text-lg">
                     עדיין אין מאמרים — בקרוב כאן יהיה תוכן חדש!
                 </p>
             ) : (

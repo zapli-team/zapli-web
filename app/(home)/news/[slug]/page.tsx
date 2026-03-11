@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { getArticleBySlug } from "@/lib/db/articles";
 
+export const dynamic = "force-dynamic";
+
 type Props = {
     params: Promise<{ slug: string }>;
 };
