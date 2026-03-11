@@ -31,6 +31,10 @@ export const NAVIGATION = [
         href: "/#about",
     },
     {
+        title: "חדשות",
+        href: "/news",
+    },
+    {
         title: "צרו קשר",
         href: "/contact",
     },
