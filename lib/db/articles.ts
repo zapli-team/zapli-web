@@ -85,6 +85,17 @@ export async function createArticle(
             ${input.author ?? "זאפלי"},
             ${input.publishedAt ? new Date(input.publishedAt) : sql`NOW()`}
         )
+        ON CONFLICT (slug) DO UPDATE SET
+            title = EXCLUDED.title,
+            content = EXCLUDED.content,
+            excerpt = EXCLUDED.excerpt,
+            "metaDescription" = EXCLUDED."metaDescription",
+            "featuredImageUrl" = EXCLUDED."featuredImageUrl",
+            category = EXCLUDED.category,
+            tags = EXCLUDED.tags,
+            author = EXCLUDED.author,
+            "publishedAt" = EXCLUDED."publishedAt",
+            "updatedAt" = NOW()
         RETURNING *
     `;
     return rows[0];

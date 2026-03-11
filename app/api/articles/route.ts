@@ -42,13 +42,6 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({ article }, { status: 201 });
     } catch (error) {
-        if (error instanceof Error && error.message.includes("duplicate key")) {
-            return NextResponse.json(
-                { error: "Article with this slug already exists" },
-                { status: 409 },
-            );
-        }
-
         console.error("Failed to create article:", error);
         return NextResponse.json(
             { error: "Internal Server Error" },
