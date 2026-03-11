@@ -1,0 +1,272 @@
+{
+  "name": "Articles Generator",
+  "nodes": [
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000001",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [100, 300],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 6
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "a1b2c3d4-0002-4000-8000-000000000002",
+      "name": "RSS TechCrunch",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [340, 100],
+      "parameters": {
+        "url": "https://techcrunch.com/feed/"
+      }
+    },
+    {
+      "id": "a1b2c3d4-0003-4000-8000-000000000003",
+      "name": "RSS The Verge",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [340, 300],
+      "parameters": {
+        "url": "https://www.theverge.com/rss/index.xml"
+      }
+    },
+    {
+      "id": "a1b2c3d4-0004-4000-8000-000000000004",
+      "name": "RSS Geektime",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [340, 500],
+      "parameters": {
+        "url": "https://www.geektime.co.il/feed/"
+      }
+    },
+    {
+      "id": "a1b2c3d4-0005-4000-8000-000000000005",
+      "name": "Merge Feeds",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [580, 300],
+      "parameters": {
+        "mode": "append"
+      }
+    },
+    {
+      "id": "a1b2c3d4-0006-4000-8000-000000000006",
+      "name": "Split In Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [820, 300],
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      }
+    },
+    {
+      "id": "a1b2c3d4-0007-4000-8000-000000000007",
+      "name": "Google Gemini Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [1060, 500],
+      "parameters": {
+        "modelName": "gemini-1.5-pro",
+        "options": {
+          "temperature": 0.7,
+          "maxOutputTokens": 4096
+        }
+      },
+      "credentials": {
+        "googleGeminiApi": {
+          "id": "REPLACE_WITH_CREDENTIAL_ID",
+          "name": "Google Gemini (admin@zapli.co.il)"
+        }
+      }
+    },
+    {
+      "id": "a1b2c3d4-0008-4000-8000-000000000008",
+      "name": "Rewrite Article in Hebrew",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [1060, 300],
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an expert Hebrew content writer for an Israeli technology and business news website. Your job is to take RSS feed articles and rewrite them in Hebrew, optimized for an Israeli audience interested in technology, startups, and business.\n\nOriginal article details:\nTitle: {{ $json.title }}\nSource URL: {{ $json.link }}\nPublished: {{ $json.isoDate ?? $json.pubDate }}\nContent: {{ $json.content ?? $json.contentSnippet ?? $json.summary ?? $json.description }}\n\nRewrite this as a comprehensive, SEO-optimized Hebrew article. Return ONLY a valid JSON object (no markdown, no code blocks, no extra text) with this exact structure:\n{\n  \"slug\": \"english-url-slug-YYYY-MM-DD\",\n  \"title\": \"כותרת מאמר מלאה בעברית\",\n  \"content\": \"<article><h2>כותרת משנה</h2><p>פסקה ראשונה...</p><h2>כותרת משנה 2</h2><p>פסקה שנייה...</p></article>\",\n  \"excerpt\": \"תקציר קצר של המאמר בעברית (2-3 משפטים, עד 200 תווים)\",\n  \"metaDescription\": \"תיאור SEO בעברית עד 160 תווים\",\n  \"category\": \"קטגוריה\",\n  \"tags\": [\"תג1\", \"תג2\", \"תג3\"]\n}\n\nRules:\n- slug: English only, lowercase, hyphen-separated, end with the publication date in YYYY-MM-DD format\n- title: engaging Hebrew title, SEO-optimized for Israeli readers\n- content: 500-800 words in Hebrew, proper HTML with h2 headings and p paragraphs\n- excerpt: 2-3 sentences max 200 characters total\n- metaDescription: max 160 characters, compelling for search results\n- category: exactly one of: טכנולוגיה, עסקים, סטארט-אפ, בינה מלאכותית, אבטחת מידע, כללי\n- tags: 3-7 relevant Hebrew keywords as array\n- Adapt the content for Israeli audience - mention relevance to Israel where applicable\n- Do NOT include the author field (it will be set automatically)"
+      }
+    },
+    {
+      "id": "a1b2c3d4-0009-4000-8000-000000000009",
+      "name": "Parse Gemini Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1300, 300],
+      "parameters": {
+        "jsCode": "const text = $input.first().json.text;\n\n// Strip markdown code fences if present\nlet cleaned = text.trim();\nif (cleaned.startsWith('```json')) {\n  cleaned = cleaned.replace(/^```json\\s*/, '').replace(/```\\s*$/, '').trim();\n} else if (cleaned.startsWith('```')) {\n  cleaned = cleaned.replace(/^```\\s*/, '').replace(/```\\s*$/, '').trim();\n}\n\nlet article;\ntry {\n  article = JSON.parse(cleaned);\n} catch (e) {\n  throw new Error('Failed to parse Gemini JSON output: ' + e.message + '\\nRaw: ' + text.substring(0, 500));\n}\n\n// Validate required fields\nconst required = ['slug', 'title', 'content', 'excerpt', 'metaDescription'];\nfor (const field of required) {\n  if (!article[field]) {\n    throw new Error('Missing required field: ' + field);\n  }\n}\n\n// Sanitize slug: ensure it's URL-safe\narticle.slug = article.slug\n  .toLowerCase()\n  .replace(/[^a-z0-9-]/g, '-')\n  .replace(/-+/g, '-')\n  .replace(/^-|-$/g, '');\n\n// Ensure tags is an array\nif (!Array.isArray(article.tags)) {\n  article.tags = [];\n}\n\n// Set defaults\nif (!article.category) {\n  article.category = 'כללי';\n}\n\nreturn [{ json: article }];"
+      }
+    },
+    {
+      "id": "a1b2c3d4-0010-4000-8000-000000000010",
+      "name": "Post Article to Zapli",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1540, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "https://zapli.co.il/api/articles",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.ARTICLES_API_TOKEN }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "a1b2c3d4-0011-4000-8000-000000000011",
+      "name": "Check Result",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1780, 300],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cond-1",
+              "leftValue": "={{ $json.article.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "a1b2c3d4-0012-4000-8000-000000000012",
+      "name": "Article Published",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [2020, 200],
+      "parameters": {}
+    },
+    {
+      "id": "a1b2c3d4-0013-4000-8000-000000000013",
+      "name": "Log Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2020, 400],
+      "parameters": {
+        "jsCode": "const response = $input.first().json;\nconsole.error('Failed to publish article:', JSON.stringify(response, null, 2));\n// Return empty to continue processing other items\nreturn [];"
+      }
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {"node": "RSS TechCrunch", "type": "main", "index": 0},
+          {"node": "RSS The Verge", "type": "main", "index": 0},
+          {"node": "RSS Geektime", "type": "main", "index": 0}
+        ]
+      ]
+    },
+    "RSS TechCrunch": {
+      "main": [
+        [{"node": "Merge Feeds", "type": "main", "index": 0}]
+      ]
+    },
+    "RSS The Verge": {
+      "main": [
+        [{"node": "Merge Feeds", "type": "main", "index": 1}]
+      ]
+    },
+    "RSS Geektime": {
+      "main": [
+        [{"node": "Merge Feeds", "type": "main", "index": 2}]
+      ]
+    },
+    "Merge Feeds": {
+      "main": [
+        [{"node": "Split In Batches", "type": "main", "index": 0}]
+      ]
+    },
+    "Split In Batches": {
+      "main": [
+        [{"node": "Rewrite Article in Hebrew", "type": "main", "index": 0}]
+      ]
+    },
+    "Google Gemini Model": {
+      "ai_languageModel": [
+        [{"node": "Rewrite Article in Hebrew", "type": "ai_languageModel", "index": 0}]
+      ]
+    },
+    "Rewrite Article in Hebrew": {
+      "main": [
+        [{"node": "Parse Gemini Output", "type": "main", "index": 0}]
+      ]
+    },
+    "Parse Gemini Output": {
+      "main": [
+        [{"node": "Post Article to Zapli", "type": "main", "index": 0}]
+      ]
+    },
+    "Post Article to Zapli": {
+      "main": [
+        [{"node": "Check Result", "type": "main", "index": 0}]
+      ]
+    },
+    "Check Result": {
+      "main": [
+        [{"node": "Article Published", "type": "main", "index": 0}],
+        [{"node": "Log Error", "type": "main", "index": 0}]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "tags": [],
+  "pinData": {},
+  "versionId": "a1b2c3d4-ffff-4000-8000-000000000000",
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "instanceId": "REPLACE_WITH_INSTANCE_ID"
+  }
+}
