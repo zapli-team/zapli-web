@@ -57,7 +57,7 @@ export default async function ArticlePage({ params }: Props) {
     if (!article) notFound();
 
     return (
-        <article className="mx-auto max-w-4xl px-6 py-16 pt-28 md:py-32 md:pt-36">
+        <article className="article-body mx-auto max-w-4xl px-6 py-16 pt-28 md:py-32 md:pt-36">
             <Link
                 href="/news"
                 className="text-muted-foreground hover:text-primary mb-8 inline-flex items-center gap-1.5 text-sm transition-colors"
