@@ -98,7 +98,7 @@ export default async function ArticlePage({ params }: Props) {
             )}
 
             <div
-                className="prose prose-invert font-rubik prose-headings:font-ploni max-w-none leading-relaxed"
+                className="article-body prose prose-invert font-rubik prose-headings:font-ploni max-w-none leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: article.content }}
             />
         </article>
