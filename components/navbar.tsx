@@ -9,7 +9,7 @@ function Navbar({ className, ...props }: React.ComponentProps<"header">) {
     return (
         <header
             className={cn(
-                "fixed top-0 z-100 flex w-full items-center justify-between bg-[#030303] px-4 py-3 sm:px-6",
+                "bg-background fixed top-0 z-100 flex w-full items-center justify-between px-4 py-3 sm:px-6",
                 className,
             )}
             {...props}

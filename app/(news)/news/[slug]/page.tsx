@@ -57,7 +57,7 @@ export default async function ArticlePage({ params }: Props) {
     if (!article) notFound();
 
     return (
-        <article className="article-body mx-auto max-w-4xl px-6 py-16 pt-28 md:py-32 md:pt-36">
+        <article className="article-body font-google-sans mx-auto max-w-4xl px-6 py-16 pt-28 md:py-32 md:pt-36">
             <Link
                 href="/news"
                 className="text-muted-foreground hover:text-primary mb-8 inline-flex items-center gap-1.5 text-sm transition-colors"
@@ -67,7 +67,7 @@ export default async function ArticlePage({ params }: Props) {
             </Link>
 
             <header className="mb-10 space-y-4">
-                <div className="flex flex-wrap items-center gap-3">
+                <div className="flex flex-wrap items-center gap-1">
                     <Badge variant="secondary">{article.category}</Badge>
                     {article.tags.map((tag) => (
                         <Badge key={tag} variant="outline">
@@ -98,7 +98,7 @@ export default async function ArticlePage({ params }: Props) {
             )}
 
             <div
-                className="prose prose-invert font-rubik prose-headings:font-ploni max-w-none leading-relaxed"
+                className="prose font-rubik prose-headings:font-ploni max-w-none leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: article.content }}
             />
         </article>

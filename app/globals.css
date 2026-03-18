@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -164,6 +165,7 @@
     --font-ploni:
         var(--font-ploni), var(--font-rubik), var(--font-roboto), system-ui,
         Arial, sans-serif;
+    --font-google-sans: "Google Sans", var(--font-rubik), sans-serif;
 
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
@@ -195,9 +197,32 @@
     }
 }
 
+/* ── Light-mode overrides (editorial / news) ── */
+.light-mode {
+    --background: hsl(40 33% 97%);
+    --foreground: hsl(24 10% 10%);
+    --card: hsl(40 20% 99%);
+    --card-foreground: hsl(24 10% 10%);
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(24 10% 10%);
+    --primary: hsl(155 62% 37%);
+    --primary-foreground: hsl(0 0% 100%);
+    --secondary: hsl(36 14% 91%);
+    --secondary-foreground: hsl(24 8% 30%);
+    --muted: hsl(36 16% 95%);
+    --muted-foreground: hsl(24 5% 46%);
+    --accent: hsl(40 30% 93%);
+    --accent-foreground: hsl(24 8% 25%);
+    --destructive: hsl(0 72% 51%);
+    --destructive-foreground: hsl(0 0% 100%);
+    --border: hsl(36 12% 86%);
+    --input: hsl(36 12% 86%);
+    --ring: hsl(155 62% 37%);
+}
+
 /* ── Article image layouts ── */
 .article-body figure {
-    margin: 2rem 0;
+    margin: 4rem 0;
 }
 
 .article-body figure img {
@@ -220,10 +245,10 @@
 .article-body figure.img-half {
     float: left;
     width: 50%;
-    margin-left: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-left: 2.5rem;
+    margin-bottom: 1.5rem;
     margin-right: 0;
-    padding-right: 1.25rem;
+    padding-right: 2rem;
 }
 
 @media (max-width: 640px) {

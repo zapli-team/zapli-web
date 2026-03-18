@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { getArticles } from "@/lib/db/articles";
+import { cn } from "@/utils/funcs";
 
 export const metadata: Metadata = {
     title: "חדשות ומאמרים",
@@ -51,15 +52,20 @@ export default async function NewsPage() {
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {articles.map((article) => (
                         <Link key={article.slug} href={`/news/${article.slug}`}>
-                            <Card className="group flex h-full flex-col gap-4 p-5 transition-colors hover:border-white/20">
+                            <Card className="group flex h-full flex-col gap-4 overflow-hidden rounded-[0.5rem] py-0 transition-colors">
                                 {article.featuredImageUrl && (
                                     <img
                                         src={article.featuredImageUrl}
                                         alt={article.title}
-                                        className="aspect-video w-full rounded-lg object-cover"
+                                        className="aspect-video w-full object-cover"
                                     />
                                 )}
-                                <div className="flex flex-1 flex-col gap-3">
+                                <div
+                                    className={cn(
+                                        "flex flex-1 flex-col gap-3 p-5",
+                                        article.featuredImageUrl && "pt-0",
+                                    )}
+                                >
                                     <div className="flex items-center gap-2">
                                         <Badge variant="secondary">
                                             {article.category}
